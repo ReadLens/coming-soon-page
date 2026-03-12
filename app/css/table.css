@@ -1,0 +1,113 @@
+ .table-container {
+  overflow-x: auto;
+  border-radius: 8px; 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--accent-white) !important;
+  overflow-x: auto;
+  border: 1px solid #fff;
+  border:none !important;
+  border-radius: 8px !important;
+}
+
+thead {
+  background: #f9fafb;
+  text-align: left;
+  white-space: nowrap;
+  font-family: 'Inter'; 
+  font-style: normal; 
+  font-weight: 600; 
+  font-size: 16px; 
+  line-height: 19px;  
+  color: #000000;
+ 
+}
+
+th,
+td {
+  /* padding: 12px 16px; */
+  /* border-bottom: 1px solid #ddd; */
+  min-width: 40px;
+  height: 19px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #667085;
+   padding: 11px 15px !important;  
+   
+}
+
+th {
+  font-weight: 600;
+  color: #333;
+}
+
+tbody tr:nth-child(even) {
+  background: #fff !important;
+}
+
+tbody tr:hover {
+  background: #f9f9f9 !important;
+}
+
+td {
+  width: 149px;
+  height: 20px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #101828;
+  font-family: 'Inter'; 
+  font-style: normal; 
+  font-weight: 400; 
+  font-size: 16px; 
+  line-height: 19px;  
+  color: #636363;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+td:last-child:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar container */
+::-webkit-scrollbar {
+  width: 2px !important; /* Width of the scrollbar */
+  height: 8px; /* Height for horizontal scrollbars */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light grey background */
+  border-radius: 6px; /* Rounded corners */
+}
+
+/* Scrollbar handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #8888886f; /* Darker grey handle */
+  border-radius: 6px; /* Rounded corners */
+}
+
+/* Hover effect on the handle */
+::-webkit-scrollbar-thumb:hover {
+  background: #5555559f; /* Even darker grey */
+}
