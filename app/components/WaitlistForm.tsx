@@ -7,9 +7,10 @@ import Button from './Button';
 import Input from './Input';
 import LayeredBooksDisplay from './LayeredBooksDisplay';
 import { BOOK_DATA, STATS_DATA } from '../lib/waitlist-data';
+import { joinWaitlist } from '../lib/api';
 
 interface WaitlistFormProps {
-    onSuccess: (email: string) => void;
+    onSuccess: (email: string, message?: string) => void;
 }
 
 const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
@@ -34,11 +35,15 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
         setIsLoading(true);
 
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            onSuccess(email);
+            const response = await joinWaitlist(email);
+            
+            if (response.success) {
+                onSuccess(email, response.message);
+            } else {
+                setError(response.error || 'Something went wrong. Please try again.');
+            }
         } catch (err) {
-            setError('Something went wrong. Please try again.');
+            setError('A network error occurred. Please try again.');
         } finally {
             setIsLoading(false);
         }
@@ -111,7 +116,7 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
 
             <div className="mt-8 flex items-center gap-3">
                 <div className="flex -space-x-3 lg:hidden">
-                    {STATS_DATA.avatars.slice(0, 3).map((avatar, i) => (
+                    {STATS_DATA.avatars.slice(0, 3).map((avatar: string, i: number) => (
                         <div key={i} className="w-8 h-8 rounded-full border-2 border-green-normal bg-green-light overflow-hidden shadow-sm">
                             <Image src={avatar} alt={`User ${i + 1}`} width={32} height={32} />
                         </div>

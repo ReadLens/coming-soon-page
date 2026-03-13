@@ -10,10 +10,14 @@ import HeroVisual from './components/HeroVisual';
 
 export default function WaitlistPage() {
     const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSuccess = (submittedEmail: string) => {
+    const handleSuccess = (submittedEmail: string, successMessage?: string) => {
         setEmail(submittedEmail);
+        if (successMessage) {
+            setMessage(successMessage);
+        }
         setIsSubmitted(true);
     };
 
@@ -29,11 +33,15 @@ export default function WaitlistPage() {
 
                 {/* Main Content */}
                 <div className="max-w-xl self-center lg:self-start my-auto lg:my-0 pt-10 pb-20 lg:py-0">
-                    <AnimatePresence mode="wait">
-                        {!isSubmitted ? (
-                            <WaitlistForm onSuccess={handleSuccess} />
-                        ) : (
-                            <SuccessState email={email} onReset={() => setIsSubmitted(false)} />
+                    <WaitlistForm onSuccess={handleSuccess} />
+                    
+                    <AnimatePresence>
+                        {isSubmitted && (
+                            <SuccessState 
+                                email={email} 
+                                message={message}
+                                onReset={() => setIsSubmitted(false)} 
+                            />
                         )}
                     </AnimatePresence>
                 </div>
