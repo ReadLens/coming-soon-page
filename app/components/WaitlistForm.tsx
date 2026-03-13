@@ -38,6 +38,7 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
             const response = await joinWaitlist(email);
             
             if (response.success) {
+                setEmail('');
                 onSuccess(email, response.message);
             } else {
                 setError(response.error || 'Something went wrong. Please try again.');
