@@ -83,12 +83,39 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
                 />
             </motion.div>
 
-            <h1 className="text-green-normal font-sherika font-bold text-4xl md:text-5xl lg:text-6xl lg:leading-tight mb-6 text-balance leading-[1.1]">
-                The Future of Reading <span className="text-primary-normal">is Almost Here.</span>
+            <h1 className="text-green-normal font-sherika font-bold text-[28px] md:text-[36px] lg:text-5xl xl:text-6xl lg:leading-tight mb-6 leading-[1.2]">
+                <span className="block">The Future of Reading</span>
+                <span className="block">is Almost Here.</span>
             </h1>
-            <p className="text-primary-normal text-base md:text-xl mb-10 leading-relaxed max-w-lg opacity-80 lg:opacity-100">
+            <p className="text-primary-normal text-sm md:text-base lg:text-lg mb-10 leading-relaxed max-w-lg opacity-80 lg:opacity-100">
                 Join an exclusive community of readers and authors. Be the first to know when we launch and get early access to premium features.
             </p>
+
+            {/* Professional Stat & Testimonial Section */}
+            <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="max-w-md mb-8 p-6 lg:p-8 rounded-[24px] bg-white border border-neutral-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+            >
+                <div className="flex items-center gap-4 mb-4 lg:mb-5">
+                    <div className="flex -space-x-3">
+                        {STATS_DATA.avatars.map((avatar: string, i: number) => (
+                            <div key={i} className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white bg-green-light overflow-hidden shadow-sm relative z-10" style={{ zIndex: STATS_DATA.avatars.length - i }}>
+                                <Image src={avatar} alt={`User ${i + 1}`} width={48} height={48} />
+                            </div>
+                        ))}
+                    </div>
+                    <div>
+                        <p className="text-primary-normal font-bold text-lg lg:text-xl leading-none mb-1">{STATS_DATA.count}</p>
+                        <p className="text-primary-lighter text-sm lg:text-base font-medium">{STATS_DATA.label}</p>
+                    </div>
+                </div>
+                
+                <p className="text-primary-normal text-base lg:text-lg leading-relaxed font-medium text-neutral-600">
+                    &quot;{STATS_DATA.testimonial}&quot;
+                </p>
+            </motion.div>
 
             <form onSubmit={handleSubmit} className="space-y-5 max-w-md">
                 <div className="relative group min-h-20">
@@ -103,7 +130,7 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
                         className="h-14 lg:h-16 lg:text-lg"
                     />
                 </div>
-                    <Button
+                <Button
                     type="submit"
                     variant="primary"
                     size="lg"
@@ -114,19 +141,6 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
                     Join the Waitlist
                 </Button>
             </form>
-
-            <div className="mt-8 flex items-center gap-3">
-                <div className="flex -space-x-3 lg:hidden">
-                    {STATS_DATA.avatars.slice(0, 3).map((avatar: string, i: number) => (
-                        <div key={i} className="w-8 h-8 rounded-full border-2 border-green-normal bg-green-light overflow-hidden shadow-sm">
-                            <Image src={avatar} alt={`User ${i + 1}`} width={32} height={32} />
-                        </div>
-                    ))}
-                </div>
-                <p className="text-primary-lighter text-sm font-medium">
-                    Join <span className="text-green-normal font-bold">5,000+</span> early birds
-                </p>
-            </div>
         </motion.div>
     );
 };
