@@ -5,8 +5,7 @@ import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Disable Lenis smooth scrolling on mobile devices
-    if (window.innerWidth < 768) return;
+
 
     const lenis = new Lenis({
       duration: 1.2,
