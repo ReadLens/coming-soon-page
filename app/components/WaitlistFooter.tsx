@@ -12,9 +12,9 @@ const WaitlistFooter = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="w-full max-w-xl flex justify-start mt-8"
+            className="w-full max-w-xl flex justify-center md:justify-start mt-8"
         >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-5">
                 {SOCIAL_LINKS.map((link) => (
                     <motion.a
                         key={link.label}

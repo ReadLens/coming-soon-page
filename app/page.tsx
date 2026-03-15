@@ -22,7 +22,7 @@ export default function WaitlistPage() {
     };
 
     return (
-        <div className="min-h-screen bg-neutral-white flex flex-col md:flex-row relative sm:overflow-x-hidden font-inter">
+        <div className="min-h-screen bg-neutral-white flex flex-col md:flex-row relative mx-auto sm:mx-0 overflow-x-hidden  font-inter">
             {/* Decorative background elements - enhanced for mobile */}
             <div className="absolute top-[-10%] left-[-10%] w-[70%] md:w-[40%] h-[40%] bg-green-light rounded-full blur-[80px] md:blur-[120px] opacity-40 md:opacity-30 pointer-events-none animate-pulse"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[70%] md:w-[40%] h-[40%] bg-green-light rounded-full blur-[80px] md:blur-[120px] opacity-40 md:opacity-30 pointer-events-none animate-pulse" style={{ animationDelay: '1s' }}></div>
