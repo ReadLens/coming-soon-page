@@ -1,0 +1,17 @@
+# name: Keep Backend Alive
+
+# on:
+#   schedule:
+#     # Runs every 10 minutes to prevent Render free tier from sleeping
+#     - cron: '*/10 * * * *'
+#   workflow_dispatch: # Allows manual trigger from GitHub Actions
+
+# jobs:
+#   ping:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Ping Health Endpoint
+#         run: |
+#           echo "Pinging backend health endpoint..."
+#           curl -f -s https://main-api-latest.onrender.com/api/v1/health
+#           echo "Health check ping complete."

@@ -28,11 +28,11 @@ export default function WaitlistPage() {
             <div className="absolute bottom-[-10%] right-[-10%] w-[70%] md:w-[40%] h-[40%] bg-green-light rounded-full blur-[80px] md:blur-[120px] opacity-40 md:opacity-30 pointer-events-none animate-pulse" style={{ animationDelay: '1s' }}></div>
 
             {/* Left Content Area */}
-            <div className="w-full md:w-1/2 flex flex-col justify-between p-6 md:p-10 lg:p-16 relative z-10 min-h-screen md:min-h-0">
+            <div className="w-full md:w-1/2 flex flex-col items-center p-6 md:p-10 lg:p-16 relative z-10 min-h-screen">
                 <WaitlistHeader />
 
                 {/* Main Content */}
-                <div className="max-w-xl self-center lg:self-start my-auto lg:my-0 pt-10 pb-20 lg:py-0">
+                <div className="w-full max-w-xl my-auto py-10">
                     <WaitlistForm onSuccess={handleSuccess} />
                     
                     <AnimatePresence>
